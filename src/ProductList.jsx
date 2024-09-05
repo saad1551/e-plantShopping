@@ -291,7 +291,7 @@ const handlePlantsClick = (e) => {
                                 <div className="product-title">{plant.name}</div>
                                 <div className="product-description">{plant.description}</div>
                                 <div className="product-price">{plant.cost}</div>
-                                <button className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                                <button className="product-button" disabled={addedToCart[plant.name]} onClick={() => handleAddToCart(plant)}>Add to Cart</button>
                             </div>
                         ))}
                     </div>
@@ -299,7 +299,7 @@ const handlePlantsClick = (e) => {
                 ))}
         </div>
  ) :  (
-    <CartItem onContinueShopping={handleContinueShopping}/>
+    <CartItem onContinueShopping={handleContinueShopping} addedToCart={addedToCart} setAddedToCart={setAddedToCart}/>
 )}
     </div>
     );
